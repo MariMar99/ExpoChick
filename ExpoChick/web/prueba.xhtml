@@ -19,14 +19,30 @@ and open the template in the editor.
 
 
             <h:form>
-                <h1><h:outputText value="Create/Edit"/></h1>
-                <h:panelGrid columns="2">
-                   <h:outputLabel value="NombreRol:" for="nombreRol" />
-                    <h:inputText id="nombreRol" value="#{rolManagedBean.rol.nombreRol}" title="NombreRol" required="true" requiredMessage="The NombreRol field is required."/>
-                </h:panelGrid>
-                <h:commandButton actionListener="#{rolManagedBean.registrarRol()}" value="Registrar"/>
+                <h1><h:outputText value="List"/></h1>
+                <h:dataTable value="#{ciudadManagedBean.listarCiudad()}" var="item">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="IdCiudad"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idCiudad}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="NombreCiudad"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nombreCiudad}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="IdPais"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idPais}"/>
+                    </h:column>
+                </h:dataTable>
             </h:form>
         </f:view>
+
 
     </body>
 </html>
