@@ -2,6 +2,7 @@ package co.expochick.frontend.transporte.controller;
 
 import co.expochick.backend.persistence.entity.Pais;
 import co.expochick.backend.persistence.facades.PaisFacadeLocal;
+import co.expochick.frontend.converters.IConverterManagedBean;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
@@ -15,7 +16,7 @@ import javax.ejb.EJB;
  */
 @Named(value = "paisManagedBean")
 @SessionScoped
-public class PaisManagedBean implements Serializable {
+public class PaisManagedBean implements Serializable, IConverterManagedBean<Pais> {
 
     @EJB private PaisFacadeLocal paisfcl;
     private Pais pais;
@@ -48,6 +49,11 @@ public class PaisManagedBean implements Serializable {
             return paisfcl.findAll();
         } catch (Exception e) {
         }return null;
+    }
+
+    @Override
+    public Pais getObjectByKey(Integer key) {
+        return paisfcl.find(key);
     }
     
 }
