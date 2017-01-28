@@ -16,25 +16,35 @@ and open the template in the editor.
         
         <div>TODO write content</div>
         
+        <f:view>
 
-            <f:view>
 
+            <h:form>
+                <h1><h:outputText value="List"/></h1>
+                <h:dataTable value="#{ciudadManagedBean.listarCiudad()}" var="item">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="IdCiudad"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idCiudad}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="NombreCiudad"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nombreCiudad}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="IdPais"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idPais.nombrePais}"/>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </f:view>
 
-                <h:form>
-                    <h1><h:outputText value="Create/Edit"/></h1>
-                    <h:panelGrid columns="2">
-                        <h:outputLabel value="IdPais:" for="idPais" />
-                        <h:inputText id="idPais" value="#{paisManagedBean.pais.idPais}" title="IdPais" required="true" requiredMessage="The IdPais field is required."/>
-                        <h:outputLabel value="NombrePais:" for="nombrePais" />
-                        <h:inputText id="nombrePais" value="#{paisManagedBean.pais.nombrePais}" title="NombrePais" required="true" requiredMessage="The NombrePais field is required."/>
-                        <h:outputLabel value="IdContinente:" for="idContinente" />
-                        <h:selectOneMenu id="idContinente" value="#{paisManagedBean.pais.idContinente}" title="IdContinente" required="true" requiredMessage="The IdContinente field is required.">
-                            <!-- TODO: update below reference to list of available items-->
-                            <f:selectItems value="#{fixme}"/>
-                        </h:selectOneMenu>
-                    </h:panelGrid>
-                </h:form>
-            </f:view>
+            
 
             
 
