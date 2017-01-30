@@ -2,7 +2,7 @@ package co.expochick.frontend.transporte.controller;
 
 import co.expochick.backend.persistence.entity.Continente;
 import co.expochick.backend.persistence.facades.ContinenteFacadeLocal;
-import co.expochick.frontend.converters.IConverterManagedBean;
+//import co.expochick.frontend.converters.IConverterManagedBean;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
@@ -16,7 +16,8 @@ import javax.ejb.EJB;
  */
 @Named(value = "continenteManagedBean")
 @SessionScoped
-public class ContinenteManagedBean implements Serializable, IConverterManagedBean<Continente> {
+//public class ContinenteManagedBean implements Serializable, IConverterManagedBean<Continente> {
+public class ContinenteManagedBean implements Serializable{
 
     @EJB private ContinenteFacadeLocal contfcl;
     private Continente continente;
@@ -44,7 +45,7 @@ public class ContinenteManagedBean implements Serializable, IConverterManagedBea
         }return null;
     }
 
-    @Override
+//    @Override
     public Continente getObjectByKey(Integer key) {
         return contfcl.find(key);
     }

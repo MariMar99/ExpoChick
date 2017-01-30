@@ -2,6 +2,7 @@ package co.expochick.frontend.transporte.controller;
 
 import co.expochick.backend.persistence.entity.Ciudad;
 import co.expochick.backend.persistence.facades.CiudadFacadeLocal;
+import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -14,7 +15,7 @@ import javax.enterprise.context.RequestScoped;
  */
 @Named(value = "ciudadManagedBean")
 @RequestScoped
-public class CiudadManagedBean {
+public class CiudadManagedBean implements Serializable {
 
     @EJB private CiudadFacadeLocal ciudadfcl;
     private Ciudad ciudad;
